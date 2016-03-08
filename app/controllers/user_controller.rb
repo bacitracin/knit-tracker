@@ -5,10 +5,10 @@ class UserController < ApplicationController
     if is_logged_in?
       redirect to '/patterns'
     else
-      erb :'users/create_user'
+      erb :'user/create_user'
     end
   end
-  
+
   ### POST SIGN UP
 
   # LOG IN
@@ -16,7 +16,7 @@ class UserController < ApplicationController
     if is_logged_in?
       redirect '/patterns'
     else
-      erb :create_user
+      erb :'user/login'
     end
   end
 

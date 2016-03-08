@@ -25,6 +25,4 @@ class PatternController < ApplicationController
   post '/tweets/:id/delete' do
   end
 
-
-
 end
