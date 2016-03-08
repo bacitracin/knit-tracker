@@ -10,6 +10,18 @@ class UserController < ApplicationController
   end
 
   ### POST SIGN UP
+  post '/signup' do
+    if is_logged_in?
+      redirect to '/patterns'
+    elsif params[:username] == "" || params[:password] == ""
+      redirect to '/signup' #add some sort of explicit message
+    else
+      @user = User.create(:username => params[:username] :password => params[:password])
+      @user.save
+      session[:id] = @user.id #logged in
+      redirect to '/patterns'
+    end
+  end
 
   # LOG IN
   get '/login' do #renders the log in page

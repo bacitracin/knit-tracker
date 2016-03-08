@@ -5,6 +5,11 @@ class PatternController < ApplicationController
   end
 
   post '/patterns' do
+    if is_logged_in?
+      @patterns = Pattern.all
+      erb :'/patterns/index'
+    else
+    end
   end
 
   # READ
