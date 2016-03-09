@@ -4,8 +4,27 @@
 <form method="POST" action="/patterns">
 
   <p>Pattern Name: <input type='text' name="pattern_name"></p>
-  <p>Item Category: <input type='text' name='pattern_category'></p>
-  <p>Free Pattern: <input type='boolean' name='free'></p>
+  <p>
+    Item Category:
+    <select name="Item Category">
+      <option value="hat">Hat</option>
+      <option value="scarf">Scarf</option>
+      <option value="gloves">Gloves</option>
+      <option value="shawl">Shawl</option>
+      <option value="sweater">Sweater</option>
+      <option value="home">Home</option>
+      <option value="toys">Toys</option>
+      <option value="etc">Etc.</option>
+    </select>
+  </p>
+  <p>
+    Free Pattern:  
+    <select name="Free Pattern?">
+      <option value="free">Free</option>
+      <option value="paid">Paid</option>
+    </select>
+  </p>
+
   <p>URL: <input type='text' name='pattern_url'></p>
   <p>Suggested Yarn: <input type='text' name='suggested_yarn'></p>
   <p>Yarn Weight: <input type='text' name='yarn_weight'></p>
