@@ -44,13 +44,12 @@ class UserController < ApplicationController
     end
   end
 
-  # HELPERS
   def is_logged_in?
     !!session[:id]
   end
 
   def current_user
-    User.find(session[:id])
+    @user = User.find(session[:id])
   end
 
 end

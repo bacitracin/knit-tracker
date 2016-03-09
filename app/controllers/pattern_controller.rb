@@ -66,4 +66,12 @@ class PatternController < ApplicationController
   post '/tweets/:id/delete' do
   end
 
+    def is_logged_in?
+    !!session[:id]
+  end
+
+  def current_user
+    @user = User.find(session[:id])
+  end
+
 end

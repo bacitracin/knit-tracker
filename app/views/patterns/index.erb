@@ -1,0 +1,9 @@
+<h2> Your Patterns Below </h2>
+
+<% @patterns.each do |pattern| %>
+<p><%= pattern.pattern_name %></p>
+<p><%= pattern.pattern_category %></p>
+<% end %>
+
+<a href="/patterns/new"> Add another pattern to your list </a> <br>
+<a href="/logout"> Log Out </a>
