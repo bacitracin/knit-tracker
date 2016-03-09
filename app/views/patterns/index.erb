@@ -1,4 +1,5 @@
-<h2> Here are all of your saved patterns </h2>
+<h2> Hi <%= @user.username %>. Here are all of your saved patterns  </h2>
+
 <% @patterns.each_with_index do |pattern, index| %>
   <div>
     <p>#<%= index+1 %>.  <%= pattern.pattern_name %></p>

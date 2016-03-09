@@ -5,12 +5,14 @@ class PatternController < ApplicationController
     if is_logged_in?
       erb :'patterns/add_pattern'
     else
+      #flash[:error] = "Looks like you weren't logged in yet."
       redirect to '/login'
     end
   end
 
   post '/patterns' do
     if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == "" #must have name, category & URL
+      #flash[:error] = "Patterns must have a name, category and URL."
       redirect to '/patterns/new' ### add in description of error
     else
       user = User.find_by_id(session[:user_id])
