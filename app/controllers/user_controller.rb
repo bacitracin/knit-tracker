@@ -16,7 +16,7 @@ class UserController < ApplicationController
     elsif params[:username] == "" || params[:password] == ""
       redirect to '/signup' #add some sort of explicit message
     else
-      @user = User.create(:username => params[:username] :password => params[:password])
+      @user = User.create(username: params[:username], password: params[:password])
       @user.save
       session[:id] = @user.id #logged in
       redirect to '/patterns'
