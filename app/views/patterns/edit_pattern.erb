@@ -1,17 +1,21 @@
-<h2>Add a Pattern</h2>
-<p>At a minimum, the pattern should have the following:
-  <ul>
-    <li>Name</li>
-    <li>Category</li>
-    <li>URL</li>
-  </ul>
+<h2> Edit This Entry </h2>
+<h2> <%= @pattern.pattern_name %> </h2>
 
-<form method="POST" action="/patterns">
+<p>Category: <%= @pattern.pattern_category %></p>
+<p>URL: <%= @pattern.pattern_url %></p>
+<p>Free Pattern: <%= @pattern.free_pattern %></p>
+<p>Suggested Yarn: <%= @pattern.suggested_yarn %></p>
+<p>Yarn Weight: <%= @pattern.yarn_weight %></p>
+<p>Needle Size: <%= @pattern.needle_size %></p>
+<p>Yardage: <%= @pattern.yardage %></p>
+<p>Notes: <%= @pattern.pattern_notes %></p>
+
+<form method="post" action="/patterns/<%=@pattern.id%>">
 
   <p><b>Pattern Name:</b> <input type='text' name="pattern_name"></p>
   <p>
     <b>Item Category:</b>
-    <select name="Item Category">
+    <select name="pattern_category">
       <option value="hat">Hat</option>
       <option value="scarf">Scarf</option>
       <option value="gloves">Gloves</option>
@@ -22,18 +26,20 @@
       <option value="etc">Etc.</option>
     </select>
   </p>
+  <p><b>URL:</b> <input type='text' name='pattern_url'></p>
   <p>
     Free Pattern:
-    <select name="Free Pattern?">
+    <select name="free_pattern">
+      <option value="na">N/A</option>
       <option value="free">Free</option>
       <option value="paid">Paid</option>
     </select>
   </p>
-  <p><b>URL:</b> <input type='text' name='pattern_url'></p>
   <p>Suggested Yarn: <input type='text' name='suggested_yarn'></p>
   <p>
     Yarn Weight:
-    <select name="Yarn Weight">
+    <select name="yarn_weight">
+      <option value="na">N/A</option>
       <option value="lace">Lace</option>
       <option value="fingering">Fingering</option>
       <option value="dk">DK</option>
@@ -43,15 +49,20 @@
     </select>
   </p>
   <p>Needle Size: <input type='text' name='needle_size'></p>
-  <p>Notes: <input type='text' name='notes'></p>
+  <p>Notes: <input type='text' name='pattern_notes'></p>
   <p>
     Yardage:
     <select name="yardage">
+      <option value="na">N/A</option>
       <option value="100">0 - 100 yds</option>
-      <option value="500">100 - 500 yds</option>
+      <option value="250">100 - 250 yds</option>
+      <option value="500">250 - 500 yds</option>
       <option value="1000">500 - 1,000 yds</option>
+    </select>
   </p>
-
-  <p><input type='submit' value='Save Your Project'></p>
+  <p><input type='submit' value='Update this pattern'></p>
 
 </form>
+
+<p><a href='/logout'> Log Out </a></p>
+<p><a href='/patterns'> Cancel </a></p>

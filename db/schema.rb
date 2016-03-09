@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309010214) do
+ActiveRecord::Schema.define(version: 20160309210204) do
 
   create_table "patterns", force: :cascade do |t|
     t.string  "pattern_name"
     t.string  "pattern_category"
-    t.boolean "free_pattern"
+    t.string  "free_pattern"
     t.string  "pattern_url"
     t.string  "suggested_yarn"
     t.string  "yarn_weight"
-    t.string  "guage"
     t.string  "needle_size"
     t.integer "yardage"
     t.text    "pattern_notes"
     t.string  "password_digest"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,8 +1,11 @@
-<h2> Your Patterns Below </h2>
-
-<% @patterns.each do |pattern| %>
-<p><%= pattern.pattern_name %></p>
-<p><%= pattern.pattern_category %></p>
+<h2> Here are all of your saved patterns </h2>
+<% @patterns.each_with_index do |pattern, index| %>
+  <div>
+    <p>#<%= index+1 %>.  <%= pattern.pattern_name %></p>
+    <p>Category: <%= pattern.pattern_category %></p>
+    <p><a href="/patterns/<%=pattern.id%>"> More Info </a><p>
+    <br>
+  </div>
 <% end %>
 
 <a href="/patterns/new"> Add another pattern to your list </a> <br>

@@ -18,7 +18,7 @@ class UserController < ApplicationController
     else
       @user = User.create(username: params[:username], password: params[:password])
       @user.save
-      session[:id] = @user.id #logged in
+      session[:user_id] = @user.id #logged in
       redirect to '/patterns'
     end
   end
@@ -33,6 +33,15 @@ class UserController < ApplicationController
   end
 
   ### POST LOGIN
+  post "/login" do   
+    @user = User.find_by(username: params[:username]) #find the user
+    if @user && @user.authenticate(params[:password]) #check password matches
+      session[:user_id] = @user.id   #log them in
+      redirect "/patterns" #show them some tweets
+    else
+      redirect "/login"
+    end
+  end
 
   # USER LOGOUT
   get '/logout' do
@@ -45,11 +54,11 @@ class UserController < ApplicationController
   end
 
   def is_logged_in?
-    !!session[:id]
+    !!session[:user_id]
   end
 
   def current_user
-    @user = User.find(session[:id])
+    @user = User.find(session[:user_id])
   end
 
 end

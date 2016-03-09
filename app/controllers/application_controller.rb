@@ -2,6 +2,7 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
+  # enable sessions
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
@@ -9,7 +10,7 @@ class ApplicationController < Sinatra::Base
     set :session_secret, 'yaaaaaaas_queeeeeeeeeeen'
   end
 
-  #Homepage
+  # Homepage
   get '/' do
     erb :index
   end
