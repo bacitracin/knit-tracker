@@ -1,11 +1,16 @@
 <h2>Add a Pattern</h2>
-<p>At a minimum, the pattern should have a name, category and URL</p>
+<p>At a minimum, the pattern should have the following:
+  <ul>
+    <li>Name</li>
+    <li>Category</li>
+    <li>URL</li>
+  </ul>
 
 <form method="POST" action="/patterns">
 
-  <p>Pattern Name: <input type='text' name="pattern_name"></p>
+  <p><b>Pattern Name:</b> <input type='text' name="pattern_name"></p>
   <p>
-    Item Category:
+    <b>Item Category:</b>
     <select name="Item Category">
       <option value="hat">Hat</option>
       <option value="scarf">Scarf</option>
@@ -18,20 +23,35 @@
     </select>
   </p>
   <p>
-    Free Pattern:  
+    Free Pattern:
     <select name="Free Pattern?">
       <option value="free">Free</option>
       <option value="paid">Paid</option>
     </select>
   </p>
-
-  <p>URL: <input type='text' name='pattern_url'></p>
+  <p><b>URL:</b> <input type='text' name='pattern_url'></p>
   <p>Suggested Yarn: <input type='text' name='suggested_yarn'></p>
-  <p>Yarn Weight: <input type='text' name='yarn_weight'></p>
-  <p>Guage: <input type='text' name='guage'></p>
+  <p>
+    Yarn Weight:
+    <select name="Yarn Weight">
+      <option value="lace">Lace</option>
+      <option value="fingering">Fingering</option>
+      <option value="dk">DK</option>
+      <option value="worsted">Worsted</option>
+      <option value="chunky">Chunky</option>
+      <option value="super bulky">Super Bulky</option>
+    </select>
+  </p>
   <p>Needle Size: <input type='text' name='needle_size'></p>
-  <p>Yardage: <input type='integer' name='yardage'></p>
   <p>Notes: <input type='text' name='notes'></p>
-  <input type='submit'>
+  <p>
+    Yardage:
+    <select name="yardage">
+      <option value="100">0 - 100 yds</option>
+      <option value="500">100 - 500 yds</option>
+      <option value="1000">500 - 1,000 yds</option>
+  </p>
+
+  <p><input type='submit' value='Save Your Project'></p>
 
 </form>
