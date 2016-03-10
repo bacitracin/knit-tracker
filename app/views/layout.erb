@@ -2,13 +2,13 @@
 
 <html>
   <body>
-
+    <img src="http://dingo.care2.com/pictures/greenliving/uploads/2012/12/kitten-with-green-yarn-ball-273x182.jpg" id="cat">
     <h1> Knit Tracker </h1>
-    <p> Track your projects! </p>
+    <p><i> Track your projects! </i></p>
     <br>
-
-
+    <% if flash[:notice] %>
+    <b><i><p class="notice"><%= flash[:notice] %></p></i></b>
+    <% end %>
   <%= yield %>
-
   </body>
 </html>
