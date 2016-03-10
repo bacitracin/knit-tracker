@@ -43,7 +43,7 @@ class UserController < ApplicationController
       session[:user_id] = @user.id   #log them in
       redirect "/patterns" #show them some tweets
     else
-      flash[:notice] = "Oops something was not right. Please try again."
+      flash[:notice] = "Your username or password were not correct. Please try again."
       redirect "/login"
     end
   end

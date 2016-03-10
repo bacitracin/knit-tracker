@@ -47,7 +47,12 @@ class PatternController < ApplicationController
   get '/patterns/:id' do
     if is_logged_in?
       @pattern = Pattern.find_by_id(params[:id])
-      erb :'patterns/show'
+      if @pattern.user_id == session[:user_id]
+        erb :'patterns/show'
+      else
+        flash[:notice] = "That's not your pattern. Sorry you can't see it."
+        redirect to '/patterns'
+      end
     else
       flash[:notice] = "Looks like you weren't logged in yet. Please log in below."
       redirect to '/login'
