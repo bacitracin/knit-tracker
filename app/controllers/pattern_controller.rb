@@ -1,4 +1,5 @@
 class PatternController < ApplicationController
+  include UserInfo
 
   # CREATE
   get '/patterns/new' do #take you to the add new pattern page
@@ -110,14 +111,6 @@ class PatternController < ApplicationController
       flash[:notice] = "Looks like you weren't logged in yet. Please log in below."
       redirect to '/login'
     end
-  end
-
-  def is_logged_in?
-    !!session[:user_id]
-  end
-
-  def current_user
-    @user = User.find(session[:user_id])
   end
 
 end

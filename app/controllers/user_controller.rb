@@ -1,4 +1,5 @@
 class UserController < ApplicationController
+  include UserInfo
 
   # SIGN UP
   get '/signup' do
@@ -58,13 +59,4 @@ class UserController < ApplicationController
       redirect '/'
     end
   end
-
-  def is_logged_in?
-    !!session[:user_id]
-  end
-
-  def current_user
-    @user = User.find(session[:user_id])
-  end
-
 end
