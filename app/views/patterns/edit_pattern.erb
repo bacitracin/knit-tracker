@@ -11,7 +11,7 @@
 <p>Notes: <%= @pattern.pattern_notes %></p>
 
 <form method="post" action="/patterns/<%=@pattern.id%>">
-
+ <input id="hidden" type="hidden" name="_method" value="patch">
   <p><b>Pattern Name:</b> <input type='text' name="pattern_name"></p>
   <p>
     <b>Item Category:</b>

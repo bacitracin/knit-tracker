@@ -76,7 +76,7 @@ class PatternController < ApplicationController
     end
   end
 
-  post '/patterns/:id' do
+  patch '/patterns/:id' do
     if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == "" #must have name, category & URL
       flash[:notice] = "Oops! Patterns must have a name, category and URL. Please try again."
       redirect to "/patterns/#{params[:id]}/edit" ### add in description of error
