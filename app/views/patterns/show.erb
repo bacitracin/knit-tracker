@@ -1,7 +1,7 @@
 <h2> <%= @pattern.pattern_name %> </h2>
 
 <p>Category: <%= @pattern.pattern_category %></p>
-<p>URL: <%= @pattern.pattern_url %></p> 
+<p>URL: <a href="<%= @pattern.pattern_url %>"><%= @pattern.pattern_url %></a></p>
 <p>Free Pattern: <%= @pattern.free_pattern %></p>
 <p>Suggested Yarn: <%= @pattern.suggested_yarn %></p>
 <p>Yarn Weight: <%= @pattern.yarn_weight %></p>
@@ -10,6 +10,7 @@
 <p>Notes: <%= @pattern.pattern_notes %></p>
 
 <form method="post" action="/patterns/<%=@pattern.id%>/delete">
+  <input id="hidden" type="hidden" name="_method" value="delete">
   <input type="submit" value="Delete This Pattern">
 </form>
 

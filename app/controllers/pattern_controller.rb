@@ -81,16 +81,16 @@ class PatternController < ApplicationController
       flash[:notice] = "Oops! Patterns must have a name, category and URL. Please try again."
       redirect to "/patterns/#{params[:id]}/edit" ### add in description of error
     else
-      @pattern = Pattern.find_by_id(params[:id])
-      @pattern.pattern_name = params[:pattern_name]
-      @pattern.pattern_category = params[:pattern_category]
-      @pattern.free_pattern = params[:free_pattern] || "N/A"
+      @pattern = Pattern.find_by_id(params[:id]) #must have
+      @pattern.pattern_name = params[:pattern_name] #must have
+      @pattern.pattern_category = params[:pattern_category] #must have
+      @pattern.free_pattern = params[:free_pattern]
       @pattern.pattern_url = params[:pattern_url]
-      @pattern.suggested_yarn = params[:suggested_yarn] || "N/A"
-      @pattern.yarn_weight = params[:yarn_weight] || "N/A"
-      @pattern.needle_size = params[:needle_size] || "N/A"
-      @pattern.yardage = params[:yardage] || "N/A"
-      @pattern.pattern_notes = params[:pattern_notes] || "N/A"
+      @pattern.suggested_yarn = params[:suggested_yarn]
+      @pattern.yarn_weight = params[:yarn_weight]
+      @pattern.needle_size = params[:needle_size]
+      @pattern.yardage = params[:yardage]
+      @pattern.pattern_notes = params[:pattern_notes]
       @pattern.user_id = current_user.id
       @pattern.save
       flash[:notice] = "Your pattern has been updated!"
@@ -99,7 +99,7 @@ class PatternController < ApplicationController
   end
 
   # DELETE
-  post '/patterns/:id/delete' do
+  delete '/patterns/:id/delete' do
     if is_logged_in?
       @pattern = Pattern.find_by_id(params[:id])
       if @pattern.user_id == session[:user_id]
