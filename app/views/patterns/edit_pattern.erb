@@ -20,6 +20,7 @@
       <option value="Scarf">Scarf</option>
       <option value="Gloves">Gloves</option>
       <option value="Shawl">Shawl</option>
+      <option value="Socks">Socks</option>
       <option value="Sweater">Sweater</option>
       <option value="Home">Home</option>
       <option value="Toys">Toys</option>
@@ -29,16 +30,16 @@
   <p><b>URL:</b> <input type='text' name='pattern_url'></p>
   <p>
     Free Pattern:
-    <select name="free_pattern">
+    <select name="free_pattern" value="N/A">
       <option value="N/A">N/A</option>
       <option value="Free">Free</option>
       <option value="Paid">Paid</option>
     </select>
   </p>
-  <p>Suggested Yarn: <input type='text' name='suggested_yarn'></p>
+  <p>Suggested Yarn: <input type='text' name='suggested_yarn' value="N/A"></p>
   <p>
     Yarn Weight:
-    <select name="yarn_weight">
+    <select name="yarn_weight" value="N/A">
       <option value="N/A">N/A</option>
       <option value="Lace">Lace</option>
       <option value="Fingering">Fingering</option>
@@ -48,16 +49,17 @@
       <option value="Super Bulky">Super Bulky</option>
     </select>
   </p>
-  <p>Needle Size: <input type='text' name='needle_size'></p>
-  <p>Notes: <input type='text' name='pattern_notes'></p>
+  <p>Needle Size: <input type='text' name='needle_size' value="N/A"></p>
+  <p>Notes: <input type='text' name='pattern_notes' value="N/A"></p>
   <p>
     Yardage:
-    <select name="yardage">
+    <select name="yardage" value="N/A">
       <option value="N/A">N/A</option>
       <option value="100">0 - 100 yds</option>
       <option value="250">100 - 250 yds</option>
       <option value="500">250 - 500 yds</option>
       <option value="1000">500 - 1,000 yds</option>
+      <option value="1000+">1000+ yds</option>
     </select>
   </p>
   <p><input type='submit' value='Update this pattern'></p>

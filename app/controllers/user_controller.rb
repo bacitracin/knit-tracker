@@ -1,5 +1,4 @@
 class UserController < ApplicationController
-  include UserInfo
 
   # SIGN UP
   get '/signup' do

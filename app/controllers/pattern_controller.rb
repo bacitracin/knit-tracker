@@ -1,5 +1,4 @@
 class PatternController < ApplicationController
-  include UserInfo
 
   # CREATE
   get '/patterns/new' do #take you to the add new pattern page
@@ -77,7 +76,7 @@ class PatternController < ApplicationController
   end
 
   patch '/patterns/:id' do
-    if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == "" #must have name, category & URL
+    if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == ""
       flash[:notice] = "Oops! Patterns must have a name, category and URL. Please try again."
       redirect to "/patterns/#{params[:id]}/edit" ### add in description of error
     else
