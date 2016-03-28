@@ -1,7 +1,7 @@
 class PatternController < ApplicationController
 
   # CREATE
-  get '/patterns/new' do #take you to the add new pattern page
+  get '/patterns/new' do #take you to the add new pattern page to create/add
     if is_logged_in?
       erb :'patterns/add_pattern'
     else
@@ -13,9 +13,9 @@ class PatternController < ApplicationController
   post '/patterns' do
     if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == "" #must have name, category & URL
       flash[:notice] = "Oops! Patterns must have a name, category and URL. Please try again."
-      redirect to '/patterns/new' ### add in description of error
+      redirect to '/patterns/new' 
     else
-      user = User.find_by_id(session[:user_id])
+      user = current_user
       @pattern = Pattern.create(
         :pattern_name => params[:pattern_name],
         :pattern_category => params[:pattern_category],
@@ -78,7 +78,7 @@ class PatternController < ApplicationController
   patch '/patterns/:id' do
     if params[:pattern_name] == "" || params[:pattern_category] == "" || params[:pattern_url] == ""
       flash[:notice] = "Oops! Patterns must have a name, category and URL. Please try again."
-      redirect to "/patterns/#{params[:id]}/edit" ### add in description of error
+      redirect to "/patterns/#{params[:id]}/edit"
     else
       @pattern = Pattern.find_by_id(params[:id]) #must have
       @pattern.pattern_name = params[:pattern_name] #must have
@@ -106,7 +106,7 @@ class PatternController < ApplicationController
         flash[:notice] = "The pattern was deleted."
         redirect to '/patterns'
       end
-      else
+    else
       flash[:notice] = "Looks like you weren't logged in yet. Please log in below."
       redirect to '/login'
     end

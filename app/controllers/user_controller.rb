@@ -1,6 +1,6 @@
 class UserController < ApplicationController
 
-  # SIGN UP
+  # SIGN UP 
   get '/signup' do
     if is_logged_in?
       flash[:notice] = "You were already logged in. Here are your patterns."
@@ -10,7 +10,7 @@ class UserController < ApplicationController
     end
   end
 
-  ### POST SIGN UP
+
   post '/signup' do
     if is_logged_in?
       flash[:notice] = "You were already logged in. Here are your patterns."
@@ -21,7 +21,7 @@ class UserController < ApplicationController
     else
       @user = User.create(username: params[:username], password: params[:password])
       @user.save
-      session[:user_id] = @user.id #logged in
+      session[:user_id] = @user.id #logged in. where is the sessions hash initially declared?
       redirect to '/patterns'
     end
   end
@@ -36,12 +36,11 @@ class UserController < ApplicationController
     end
   end
 
-  ### POST LOGIN
   post "/login" do
     @user = User.find_by(username: params[:username]) #find the user
     if @user && @user.authenticate(params[:password]) #check password matches
       session[:user_id] = @user.id   #log them in
-      redirect "/patterns" #show them some tweets
+      redirect "/patterns" #show them their patterns
     else
       flash[:notice] = "Your username or password were not correct. Please try again."
       redirect "/login"
