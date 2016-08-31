@@ -1,7 +1,9 @@
 ### Knit-Tracker README
 #### Introduction
 
-Simple Sinatra CRUD app for organizing your knitting projects
+Simple Sinatra CRUD app for organizing your knitting projects. 
+
+[Project blog post and video walkthrough](http://www.tracyctran.com/code/2016/03/15/knit-tracker-sinatra-assessment/)
 
 #### Installation
 
